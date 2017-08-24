@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/weather_view_pager_margin"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <ImageView
+            android:id="@+id/weather_place_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/icon_place"/>
+
+        <TextView
+            android:id="@+id/weather_city_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/weather_place_iv"
+            android:padding="@dimen/text_view_padding"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            tools:text="南通"/>
+
+        <ImageView
+            android:id="@+id/weather_update_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_update"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"/>
+
+        <com.chrissen.zhitian.util.EnglishTextView
+            android:id="@+id/weather_update_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/weather_update_iv"
+            android:padding="@dimen/text_view_padding"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            tools:text="17:50:45"/>
+
+        <ImageView
+            android:id="@+id/weather_line_iv"
+            android:layout_width="60dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black"
+            android:layout_centerInParent="true"/>
+
+        <com.chrissen.zhitian.util.EnglishTextView
+            android:id="@+id/weather_temp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/text_view_padding"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/weather_line_iv"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            tools:text="32"/>
+
+        <TextView
+            android:id="@+id/weather_forecast_hourly_tips_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weather_line_iv"
+            android:layout_toLeftOf="@id/weather_line_iv"
+            android:padding="@dimen/text_view_padding"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="16dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:lineSpacingExtra="4dp"
+            tools:text="未来24小时内\n无雨"/>
+
+        <TextView
+            android:id="@+id/weather_forecast_day_tips_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weather_line_iv"
+            android:layout_toRightOf="@id/weather_line_iv"
+            android:padding="@dimen/text_view_padding"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:lineSpacingExtra="4dp"
+            tools:text="未来7天内\n无雨"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_weather_image_view_size"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_temp"/>
+
+                <com.chrissen.zhitian.util.EnglishTextView
+                    android:id="@+id/weather_temp_max_min_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:text="H:32\nL:26"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/weather_airquality_image_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_weather_image_view_size"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_airquality"/>
+
+                <TextView
+                    android:id="@+id/weather_airquality_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:text="轻度污染"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/weather_weather_text_image_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    tools:src="@drawable/icon_cloudy"/>
+
+                <TextView
+                    android:id="@+id/weather_weather_text_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:text="多云"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_weather_image_bottom_size"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/icon_humidity"/>
+
+                <com.chrissen.zhitian.util.EnglishTextView
+                    android:id="@+id/weather_humidity_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:text="86%"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_weather_image_bottom_size"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_wind"/>
+
+                <TextView
+                    android:id="@+id/weather_wind_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:text="东北风4级"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_weather_image_bottom_size"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_sun"/>
+
+                <com.chrissen.zhitian.util.EnglishTextView
+                    android:id="@+id/weather_sun_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:text="7:00\n18:54"
+                    android:gravity="center_vertical"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

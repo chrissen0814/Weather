@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="up_arrow">\u2191</string>
+    <string name="down_arrow">\u2193</string>
+    <string name="celsius">℃</string>
+
+    <string name="weatherview_sunny">sunny</string>
+    <string name="weatherview_cloudy">cloudy</string>
+    <string name="weatherview_rainy">rainy</string>
+    <string name="weatherview_snowy">snowy</string>
+    <string name="weatherview_foggy">foggy</string>
+    <string name="weatherview_sand">sandy</string>
+    <string name="weatherview_hazy">hazy</string>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#000000</color>
+
+    <color name="card_daily_night">#212121</color>
+
+    <color name="sunny">#03A9F4</color>
+    <color name="cloudy_overcast">#757575</color>
+    <color name="rain">#607D8B</color>
+    <color name="snow">#84FFFF</color>
+    <color name="fog">#B2DFDB</color>
+    <color name="haze">#795548</color>
+    <color name="sand">#FF9800</color>
+
+    <color name="airquality_good">#4CAF50</color>
+    <color name="airquality_miderate">#FFC107</color>
+    <color name="airquality_lightly_polltue">#FF5722</color>
+    <color name="airquality_miderate_pollute">#F44336</color>
+    <color name="airquality_heavy_pollute">#9C27B0</color>
+    <color name="airquality_deep_plooute">#880E4F</color>
+
+</resources>

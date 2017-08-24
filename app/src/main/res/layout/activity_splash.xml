@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splash_container_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chrissen.zhitian.view.SplashActivity">
+
+    <ImageView
+        android:id="@+id/splash_loading_iv"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/splash_loading"/>
+
+    <TextView
+        android:id="@+id/splash_loading_text_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/splash_loading_iv"
+        android:layout_marginTop="12dp"
+        android:textSize="14sp"
+        android:visibility="visible"
+        android:padding="@dimen/text_view_padding"
+        android:text="正在导入城市数据..."/>
+
+</RelativeLayout>

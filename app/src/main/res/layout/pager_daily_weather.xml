@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/daily_weather_container_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:orientation="vertical">
+
+   <RelativeLayout
+       android:id="@+id/daily_weather_swtch_rl"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+      <TextView
+          android:id="@+id/daily_weather_title_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="12sp"
+          android:gravity="center"
+          android:layout_centerInParent="true"
+          android:textColor="@android:color/black"
+          android:text="未来7天天气预报"/>
+
+      <Switch
+          android:id="@+id/daily_weather_switch_tb"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:padding="12dp"
+          android:textOn="夜间"
+          android:textOff="白天"
+          android:checked="false"/>
+
+   </RelativeLayout>
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+      <include layout="@layout/pager_daily_night_weather"/>
+
+      <include layout="@layout/pager_daily_day_weather"/>
+
+   </FrameLayout>
+
+
+
+</LinearLayout>

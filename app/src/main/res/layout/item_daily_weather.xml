@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.chrissen.zhitian.util.EnglishTextView
+        android:id="@+id/item_daily_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:padding="@dimen/text_view_padding"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="18sp"
+        tools:text="17"/>
+
+    <TextView
+        android:id="@+id/item_daily_week_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/item_daily_time_tv"
+        android:paddingTop="@dimen/text_view_padding"
+        android:paddingBottom="@dimen/text_view_padding"
+        android:layout_centerVertical="true"
+        android:textSize="13sp"
+        tools:text="星期一"/>
+
+    <ImageView
+        android:id="@+id/item_daily_weather_image_iv"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        tools:src="@drawable/icon_cloudy"/>
+
+    <com.chrissen.zhitian.util.EnglishTextView
+        android:id="@+id/item_daily_temp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/item_daily_weather_image_iv"
+        android:layout_marginRight="24dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        tools:text="26"/>
+
+</RelativeLayout>

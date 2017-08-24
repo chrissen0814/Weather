@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/weather_view_pager_margin"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/aqi_update_time_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/icon_update"/>
+
+    <com.chrissen.zhitian.util.EnglishTextView
+        android:id="@+id/aqi_update_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/aqi_update_time_iv"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="12sp"
+        tools:text="19:20:30"/>
+
+    <TextView
+        android:id="@+id/aqi_primary_pollute_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="16sp"
+        android:padding="@dimen/text_view_padding"
+        android:gravity="center"
+        tools:text="首要污染物:PM10"/>
+
+    <TextView
+        android:id="@+id/aqi_quality_level_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/aqi_primary_pollute_tv"
+        android:layout_marginBottom="16dp"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:padding="@dimen/text_view_padding"
+        tools:text="空气质量一级"/>
+
+
+    <TextView
+        android:id="@+id/aqi_affect_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aqi_primary_pollute_tv"
+        android:layout_marginTop="16dp"
+        android:textSize="19sp"
+        android:gravity="center"
+        android:padding="@dimen/text_view_padding"
+        android:lineSpacingExtra="4dp"
+        tools:text="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响"/>
+
+
+
+</RelativeLayout>

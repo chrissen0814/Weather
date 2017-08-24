@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:id="@+id/city_management_cv"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="16dp"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="5dp">
+
+    <RelativeLayout
+        android:id="@+id/city_management_back_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+
+        <TextView
+            android:id="@+id/city_management_city_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="@dimen/text_view_padding"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            tools:text="南通"/>
+
+        <com.chrissen.zhitian.util.EnglishTextView
+            android:id="@+id/city_management_weather_temp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/text_view_padding"
+            android:textSize="36sp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/city_management_city_name_tv"
+            android:textColor="@android:color/white"
+            tools:text="26"/>
+
+        <ImageView
+            android:id="@+id/city_management_weather_image_iv"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:tint="@android:color/white"
+            tools:src="@drawable/icon_sunny"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

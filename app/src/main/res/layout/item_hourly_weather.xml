@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.chrissen.zhitian.util.EnglishTextView
+        android:id="@+id/item_hourly_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:padding="@dimen/text_view_padding"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="20sp"
+        tools:text="17:00"/>
+
+    <ImageView
+        android:id="@+id/item_hourly_weather_image_iv"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:scaleType="fitXY"
+        tools:src="@drawable/icon_cloudy"/>
+
+    <com.chrissen.zhitian.util.EnglishTextView
+        android:id="@+id/item_hourly_temp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/item_hourly_weather_image_iv"
+        android:layout_marginRight="24dp"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        tools:text="26"/>
+
+</RelativeLayout>
