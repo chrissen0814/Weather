@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="cities.db"></dbname>
-    <version value="3"></version>
+    <version value="1"></version>
     <list>
         <mapping class="com.chrissen.zhitian.model.bean.City"></mapping>
         <mapping class="com.chrissen.zhitian.model.bean.SavedCity"></mapping>

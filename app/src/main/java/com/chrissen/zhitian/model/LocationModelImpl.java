@@ -57,7 +57,6 @@ public class LocationModelImpl implements LocationModel {
                                 savedCity.update(1);
                             }
                             EventBus.getDefault().post(savedCity);
-                            locationClient.stop();
                         }
                     }else {
                         List<City> cityList = DataSupport.where("cityname = ?",cityName).find(City.class);
@@ -70,7 +69,6 @@ public class LocationModelImpl implements LocationModel {
                                 savedCity.update(1);
                             }
                             EventBus.getDefault().post(savedCity);
-                            locationClient.stop();
                         }
                     }
                 }else if(districtList.size() == 1){
@@ -82,7 +80,23 @@ public class LocationModelImpl implements LocationModel {
                         savedCity.update(1);
                     }
                     EventBus.getDefault().post(savedCity);
-                    locationClient.stop();
+                } else{
+                    List<City> parentCityList = DataSupport.where("cityname = ?",cityName).find(City.class);
+                    if(parentCityList.size() == 1){
+                        City parentCity = parentCityList.get(0);
+                        String parentCityId = parentCity.getCityId();
+                        for(City city : districtList){
+                            if(city.getParentId().equals(parentCityId)){
+                                SavedCity savedCity = new SavedCity(city.getCityId(),city.getParentId(),city.getCityCode(),city.getCityName());
+                                if(DataSupport.count(SavedCity.class) == 0){
+                                    savedCity.save();
+                                }else {
+                                    savedCity.update(1);
+                                }
+                                EventBus.getDefault().post(savedCity);
+                            }
+                        }
+                    }
                 }
 
             }
