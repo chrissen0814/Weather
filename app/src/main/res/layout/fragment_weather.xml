@@ -22,7 +22,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginLeft="12dp"
         android:padding="12dp"
-        android:src="@drawable/icon_search"
+        android:src="@drawable/bt_search"
         android:tint="@android:color/white"
         android:background="@android:color/transparent"/>
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginRight="12dp"
         android:padding="12dp"
-        android:src="@drawable/icon_city_management"
+        android:src="@drawable/bt_city_management"
         android:tint="@android:color/white"
         android:background="@android:color/transparent"/>
 

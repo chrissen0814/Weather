@@ -18,7 +18,7 @@ public class WeatherInfoHelper {
 
 
     public static String getHourlyWeatherTipsInfo(List<Hourly> hourlyList){
-        String info = "未来24小时\n无雨雪天气";
+        String info = "24小时\n无雨雪天气";
         for (Hourly hourly : hourlyList){
             if(!hourly.getImg().isEmpty()){
                 int imgCode = Integer.valueOf(hourly.getImg());
@@ -32,7 +32,7 @@ public class WeatherInfoHelper {
     }
 
     public static String getDayWeatherTipsInfo(List<Daily> dailyList){
-        String weatherInfo = "未来7天内\n无雨雪天气";
+        String weatherInfo = "未来7天\n无雨雪天气";
         for(Daily daily : dailyList){
             if(!daily.getDay().getImg().isEmpty()){
                 int dayImgCode = Integer.valueOf(daily.getDay().getImg());
@@ -81,35 +81,37 @@ public class WeatherInfoHelper {
         if (!img.isEmpty()) {
             int imgCode = Integer.valueOf(img);
             if(imgCode == 0){
-                weatherImagePath = resources.getIdentifier("icon_sunny",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_sunny",category,packageName);
             }else if(imgCode == 1){
-                weatherImagePath = resources.getIdentifier("icon_cloudy",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_cloudy",category,packageName);
             }else if(imgCode == 2){
-                weatherImagePath = resources.getIdentifier("icon_overcast",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_overcast",category,packageName);
             }else if(imgCode == 3){
-                weatherImagePath = resources.getIdentifier("icon_shower",category,packageName);
-            }else if(imgCode == 4 || imgCode == 5){
-                weatherImagePath = resources.getIdentifier("icon_cloud_lighting",category,packageName);
-            }else if(imgCode == 6 || imgCode == 7 || imgCode == 21){
-                weatherImagePath = resources.getIdentifier("icon_light_rain",category,packageName);
-            }else if(imgCode == 8 || imgCode == 9 || imgCode == 301 || imgCode == 22 || imgCode == 23){
-                weatherImagePath = resources.getIdentifier("icon_rain",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_rain_shower",category,packageName);
+            }else if(imgCode == 4){
+                weatherImagePath = resources.getIdentifier("weather_shower",category,packageName);
+            }else if(imgCode == 5){
+                weatherImagePath = resources.getIdentifier("weather_hail",category,packageName);
+            }else if(imgCode == 6 || imgCode == 7){
+                weatherImagePath = resources.getIdentifier("weather_light_rain",category,packageName);
+            }else if(imgCode == 8 || imgCode == 21 || imgCode == 22 ){
+                weatherImagePath = resources.getIdentifier("weather_moderate_rain",category,packageName);
+            }else if(imgCode == 9 || imgCode == 301|| imgCode == 23){
+                weatherImagePath = resources.getIdentifier("weather_heavy_rain",category,packageName);
             }else if(imgCode == 10 || imgCode == 11 || imgCode == 12 || imgCode == 24 || imgCode == 25){
-                weatherImagePath = resources.getIdentifier("icon_rainstorm",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_rainstorm",category,packageName);
             }else if(imgCode == 14 || imgCode == 15 || imgCode == 26){
-                weatherImagePath = resources.getIdentifier("icon_light_snow",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_light_snow",category,packageName);
             }else if(imgCode == 13 || imgCode == 16 || imgCode == 17 || imgCode == 27 || imgCode == 28 || imgCode == 302){
-                weatherImagePath = resources.getIdentifier("icon_snow",category,packageName);
-            }else if(imgCode == 18){
-                weatherImagePath = resources.getIdentifier("icon_fog",category,packageName);
-            }else if(imgCode == 32 || imgCode == 49 || imgCode == 57 || imgCode == 58){
-                weatherImagePath = resources.getIdentifier("icon_heavy_fog",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_moderate_snow",category,packageName);
+            }else if(imgCode == 18 || imgCode == 32 || imgCode == 49 || imgCode == 57 || imgCode == 58 ){
+                weatherImagePath = resources.getIdentifier("weather_fog",category,packageName);
             }else if(imgCode == 19){
-                weatherImagePath = resources.getIdentifier("icon_icerain",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_icerain",category,packageName);
             }else if(imgCode == 20 || imgCode == 29 || imgCode == 30 || imgCode == 31){
-                weatherImagePath = resources.getIdentifier("icon_sand",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_sand",category,packageName);
             }else if(imgCode >= 53 && imgCode <= 56){
-                weatherImagePath = resources.getIdentifier("icon_haze",category,packageName);
+                weatherImagePath = resources.getIdentifier("weather_haze",category,packageName);
             }
             return weatherImagePath;
         }

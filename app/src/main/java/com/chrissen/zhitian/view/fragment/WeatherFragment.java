@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,8 +43,9 @@ import java.util.List;
  */
 
 public class WeatherFragment extends Fragment implements WeatherView {
-
+    private static final String TAG = "WeatherFragment";
     private WeatherPresenter presenter;
+    private Weather defaultWeather;
     private RelativeLayout weatherviewContainerRl;
     private ImageButton cityManagementIb , searchIb;
     private ViewPager weatherViewPager;
@@ -102,12 +104,15 @@ public class WeatherFragment extends Fragment implements WeatherView {
     @Subscribe
     public void onEvent(SavedCity savedCity){
         presenter.getWeather(savedCity);
+        Log.i(TAG, "onEvent: Location City");
     }
 
     @Override
     public void showWeather(Weather weather) {
+        defaultWeather = weather;
         setWeatherBackground(weather);
         EventBus.getDefault().post(weather);
+        Log.i(TAG, "showWeather: ");
     }
 
     private void setWeatherBackground(Weather weather) {

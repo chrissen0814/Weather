@@ -76,13 +76,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/weather_line_iv"
             android:layout_toLeftOf="@id/weather_line_iv"
-            android:padding="@dimen/text_view_padding"
+            android:padding="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginLeft="16dp"
             android:gravity="center"
             android:textSize="15sp"
             android:lineSpacingExtra="4dp"
-            tools:text="未来24小时内\n无雨"/>
+            tools:text="24小时内\n无雨"/>
 
         <TextView
             android:id="@+id/weather_forecast_day_tips_tv"
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/weather_line_iv"
             android:layout_toRightOf="@id/weather_line_iv"
-            android:padding="@dimen/text_view_padding"
+            android:padding="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             android:gravity="center"
@@ -119,9 +119,8 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/default_weather_image_view_size"
                     android:layout_height="@dimen/default_weather_image_view_size"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:src="@drawable/icon_temp"/>
 
@@ -130,6 +129,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/text_view_padding"
                     tools:text="H:32\nL:26"
                     android:gravity="center_vertical"/>
 
@@ -142,9 +142,8 @@
 
                 <ImageView
                     android:id="@+id/weather_airquality_image_iv"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/default_weather_image_view_size"
                     android:layout_height="@dimen/default_weather_image_view_size"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:src="@drawable/icon_airquality"/>
 
@@ -153,6 +152,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/text_view_padding"
                     tools:text="轻度污染"
                     android:gravity="center_vertical"/>
 
@@ -165,17 +165,17 @@
 
                 <ImageView
                     android:id="@+id/weather_weather_text_image_iv"
-                    android:layout_width="0dp"
-                    android:layout_height="36dp"
-                    android:layout_weight="1"
+                    android:layout_width="@dimen/default_weather_image_view_size"
+                    android:layout_height="@dimen/default_weather_image_view_size"
                     android:layout_gravity="center"
-                    tools:src="@drawable/icon_cloudy"/>
+                    tools:src="@drawable/weather_cloudy"/>
 
                 <TextView
                     android:id="@+id/weather_weather_text_tv"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/text_view_padding"
                     tools:text="多云"
                     android:gravity="center_vertical"/>
 
@@ -195,9 +195,8 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/default_weather_image_view_size"
                     android:layout_height="@dimen/default_weather_image_bottom_size"
-                    android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/icon_humidity"/>
 
@@ -206,6 +205,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/text_view_padding"
                     tools:text="86%"
                     android:gravity="center_vertical"/>
 
@@ -217,9 +217,8 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/default_weather_image_view_size"
                     android:layout_height="@dimen/default_weather_image_bottom_size"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:src="@drawable/icon_wind"/>
 
@@ -228,7 +227,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    tools:text="东北风4级"
+                    android:paddingLeft="@dimen/text_view_padding"
+                    tools:text="东北风\n4级"
                     android:gravity="center_vertical"/>
 
             </LinearLayout>
@@ -239,9 +239,8 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/default_weather_image_view_size"
                     android:layout_height="@dimen/default_weather_image_bottom_size"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:src="@drawable/icon_sun"/>
 
@@ -250,6 +249,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/text_view_padding"
                     tools:text="7:00\n18:54"
                     android:gravity="center_vertical"/>
 

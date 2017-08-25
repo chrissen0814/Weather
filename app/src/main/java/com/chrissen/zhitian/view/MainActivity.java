@@ -18,6 +18,9 @@ import com.chrissen.zhitian.view.fragment.WeatherFragment;
 import com.umeng.analytics.MobclickAgent;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+    
     private boolean isFirst;
     private LocationPresenter presenter;
 
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initLayout();
         presenter = new LocationPresenterImpl();
-        presenter.loadLocation();
+        presenter.loadLocation(this);
         startWeatherFragment();
     }
 

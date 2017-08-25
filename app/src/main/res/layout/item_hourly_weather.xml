@@ -12,18 +12,18 @@
         android:padding="@dimen/text_view_padding"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:textSize="20sp"
+        android:textSize="18sp"
         tools:text="17:00"/>
 
     <ImageView
         android:id="@+id/item_hourly_weather_image_iv"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:scaleType="fitXY"
-        tools:src="@drawable/icon_cloudy"/>
+        tools:src="@drawable/weather_cloudy"/>
 
     <com.chrissen.zhitian.util.EnglishTextView
         android:id="@+id/item_hourly_temp_tv"

@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.chrissen.zhitian.util.EnglishTextView
@@ -12,7 +14,7 @@
         android:padding="@dimen/text_view_padding"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:textSize="18sp"
+        android:textSize="16sp"
         tools:text="17"/>
 
     <TextView
@@ -23,17 +25,16 @@
         android:paddingTop="@dimen/text_view_padding"
         android:paddingBottom="@dimen/text_view_padding"
         android:layout_centerVertical="true"
-        android:textSize="13sp"
         tools:text="星期一"/>
 
     <ImageView
         android:id="@+id/item_daily_weather_image_iv"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        tools:src="@drawable/icon_cloudy"/>
+        tools:src="@drawable/weather_cloudy"/>
 
     <com.chrissen.zhitian.util.EnglishTextView
         android:id="@+id/item_daily_temp_tv"
@@ -42,7 +43,7 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/item_daily_weather_image_iv"
         android:layout_marginRight="24dp"
-        android:textSize="20sp"
+        android:textSize="26sp"
         android:gravity="center"
         android:textColor="@android:color/black"
         tools:text="26"/>

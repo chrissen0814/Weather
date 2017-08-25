@@ -3,6 +3,8 @@ package com.chrissen.zhitian;
 import android.app.Application;
 import android.content.Context;
 
+import com.squareup.leakcanary.LeakCanary;
+
 import org.litepal.LitePal;
 
 /**
@@ -18,6 +20,7 @@ public class MyApplication extends Application {
         super.onCreate();
         LitePal.initialize(this);
         context = getApplicationContext();
+        LeakCanary.install(this);
     }
 
     public static Context getContext(){

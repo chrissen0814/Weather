@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_large_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/widget_large_forecast_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            tools:text="未来7天无雨雪天气"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_large_temp_01_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_temp_text_size"
+                tools:text="26"/>
+
+            <ImageView
+                android:id="@+id/widget_large_imge_01_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:tint="@android:color/white"
+                android:padding="@dimen/widget_large_image_padding"
+                tools:src="@drawable/weather_cloudy"/>
+
+            <TextView
+                android:id="@+id/widget_large_time_01_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_time_text_size"
+                tools:text="16:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_large_temp_02_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_temp_text_size"
+                tools:text="26"/>
+
+            <ImageView
+                android:id="@+id/widget_large_image_02_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:tint="@android:color/white"
+                android:padding="@dimen/widget_large_image_padding"
+                tools:src="@drawable/weather_cloudy"/>
+
+            <TextView
+                android:id="@+id/widget_large_time_02_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_time_text_size"
+                tools:text="16:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_large_temp_03_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_temp_text_size"
+                tools:text="26"/>
+
+            <ImageView
+                android:id="@+id/widget_large_image_03_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:tint="@android:color/white"
+                android:padding="@dimen/widget_large_image_padding"
+                tools:src="@drawable/weather_cloudy"/>
+
+            <TextView
+                android:id="@+id/widget_large_time_03_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_time_text_size"
+                tools:text="16:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_large_temp_04_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_temp_text_size"
+                tools:text="26"/>
+
+            <ImageView
+                android:id="@+id/widget_large_image_04_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:tint="@android:color/white"
+                android:padding="@dimen/widget_large_image_padding"
+                tools:src="@drawable/weather_cloudy"/>
+
+            <TextView
+                android:id="@+id/widget_large_time_04_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_time_text_size"
+                tools:text="16:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/widget_large_temp_05_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_temp_text_size"
+                tools:text="26"/>
+
+            <ImageView
+                android:id="@+id/widget_large_image_05_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:tint="@android:color/white"
+                android:padding="@dimen/widget_large_image_padding"
+                tools:src="@drawable/weather_cloudy"/>
+
+            <TextView
+                android:id="@+id/widget_large_time_05_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/widget_large_time_text_size"
+                tools:text="16:00" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

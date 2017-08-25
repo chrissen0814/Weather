@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/splash_loading_iv"
         android:layout_marginTop="12dp"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:visibility="visible"
         android:padding="@dimen/text_view_padding"
         android:text="正在导入城市数据..."/>

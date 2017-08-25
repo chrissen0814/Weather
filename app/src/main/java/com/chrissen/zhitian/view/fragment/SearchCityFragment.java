@@ -119,6 +119,7 @@ public class SearchCityFragment extends Fragment {
             SavedCity savedCity = new SavedCity(city.getCityId(),city.getParentId(),city.getCityCode(),city.getCityName());
             if(!compareTwoCities(savedCity)){
                 savedCity.save();
+
                 Toast.makeText(getActivity(), "已保存", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(getActivity(), "该城市已经存在", Toast.LENGTH_SHORT).show();

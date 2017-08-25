@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:padding="@dimen/text_view_padding"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:textColor="@android:color/white"
@@ -37,19 +38,19 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/text_view_padding"
             android:textSize="36sp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/city_management_city_name_tv"
+            android:layout_centerInParent="true"
             android:textColor="@android:color/white"
             tools:text="26"/>
 
         <ImageView
             android:id="@+id/city_management_weather_image_iv"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="16dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:tint="@android:color/white"
-            tools:src="@drawable/icon_sunny"/>
+            tools:src="@drawable/weather_sunny"/>
 
     </RelativeLayout>
 

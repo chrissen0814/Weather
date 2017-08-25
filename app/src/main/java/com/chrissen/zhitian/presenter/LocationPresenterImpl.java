@@ -1,5 +1,7 @@
 package com.chrissen.zhitian.presenter;
 
+import android.content.Context;
+
 import com.chrissen.zhitian.model.LocationModel;
 import com.chrissen.zhitian.model.LocationModelImpl;
 
@@ -15,8 +17,8 @@ public class LocationPresenterImpl implements LocationPresenter {
     }
 
     @Override
-    public void loadLocation() {
-        locationModel.accessLocation();
+    public void loadLocation(Context context) {
+        locationModel.accessLocation(context);
     }
 
 }

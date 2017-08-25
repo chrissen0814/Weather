@@ -89,7 +89,7 @@ public class SplashActivity extends AppCompatActivity {
     private void showTips() {
         new AlertDialog.Builder(this)
                 .setTitle("权限说明")
-                .setMessage("定位权限用于获取所在地点的城市信息，通话权限获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户，以便进行数据统计。")
+                .setMessage("定位权限用于获取所在地点的城市信息，存储权限用于百度定位写入离线定位数据,通话权限获取用户设备的IMEI，通过IMEI和mac来唯一的标识用户，以便进行数据统计。")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -103,6 +103,9 @@ public class SplashActivity extends AppCompatActivity {
         List<String> permissionList = new ArrayList<>();
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
             permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED){
+            permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE)!=PackageManager.PERMISSION_GRANTED){
             permissionList.add(Manifest.permission.READ_PHONE_STATE);
