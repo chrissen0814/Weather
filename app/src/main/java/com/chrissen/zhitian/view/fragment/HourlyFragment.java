@@ -39,8 +39,8 @@ public class HourlyFragment extends Fragment {
         return view;
     }
 
-    @Subscribe
-    public void onEvent(Weather weather){
+    @Subscribe(priority = 4)
+    public void setHourlyWeatherInfo(Weather weather){
         hourlyRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         hourlyAdapter = new HourlyAdapter(weather.getInfo().getHourlyList());
         hourlyRv.setAdapter(hourlyAdapter);

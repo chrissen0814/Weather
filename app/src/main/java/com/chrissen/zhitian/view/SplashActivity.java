@@ -72,7 +72,11 @@ public class SplashActivity extends AppCompatActivity {
                 loadingTextTv.setVisibility(View.INVISIBLE);
                 Snackbar.make(containerRl,"导入成功",Snackbar.LENGTH_SHORT)
                         .show();
-                showTips();
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                    showTips();
+                }else {
+                    startHomeActivity();
+                }
             }
 
             @Override

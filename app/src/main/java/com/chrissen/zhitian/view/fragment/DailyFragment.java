@@ -107,8 +107,8 @@ public class DailyFragment extends Fragment {
         });
     }
 
-    @Subscribe
-    public void onEvent(Weather weather){
+    @Subscribe(priority = 3)
+    public void setDailyWeatherInfo(Weather weather){
         dailyDayRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         dailyDayAdapter = new DailyDayAdapter(weather.getInfo().getDailyList());
         dailyDayRv.setAdapter(dailyDayAdapter);

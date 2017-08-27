@@ -47,8 +47,8 @@ public class AqiFragment extends Fragment {
     }
 
 
-    @Subscribe
-    public void onEvent(Weather weather){
+    @Subscribe(priority = 2)
+    public void setAirqualityWeatherInfo(Weather weather){
         String levelInfo = "空气质量" + weather.getInfo().getAqi().getAqiInfo().getLevel();
         String primaryPolluteInfo = "首要污染物:" + weather.getInfo().getAqi().getPrimarypollutant();
         String[] updateTimes = weather.getInfo().getAqi().getTimePoint().split(" ");

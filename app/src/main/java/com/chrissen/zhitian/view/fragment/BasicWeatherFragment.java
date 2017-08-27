@@ -44,8 +44,8 @@ public class BasicWeatherFragment extends Fragment {
         return view;
     }
 
-    @Subscribe
-    public void onEvent(Weather weather){
+    @Subscribe(priority = 5)
+    public void setWeatherInfo(Weather weather){
         String updateTime = WeatherInfoHelper.getUpdateTime(weather.getInfo().getUpdateTime());
         String tempInfo = weather.getInfo().getTemp() + getResources().getString(R.string.celsius);
         String tempLow = "L:" + weather.getInfo().getTempLow();

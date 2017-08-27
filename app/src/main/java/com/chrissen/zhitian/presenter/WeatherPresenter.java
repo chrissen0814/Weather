@@ -1,5 +1,6 @@
 package com.chrissen.zhitian.presenter;
 
+import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.SavedCity;
 
 /**
@@ -8,4 +9,6 @@ import com.chrissen.zhitian.model.bean.SavedCity;
 
 public interface WeatherPresenter {
     void getWeather(SavedCity savedCity);
+
+    void getLocationWeather(DefaultCity defaultCity);
 }

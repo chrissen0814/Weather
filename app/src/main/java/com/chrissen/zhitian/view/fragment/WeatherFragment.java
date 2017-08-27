@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,7 @@ import android.widget.Toast;
 
 import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.adapter.WeatherPagerAdapter;
+import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.SavedCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.presenter.WeatherPresenter;
@@ -102,9 +102,13 @@ public class WeatherFragment extends Fragment implements WeatherView {
     }
 
     @Subscribe
-    public void onEvent(SavedCity savedCity){
+    public void getLocation(DefaultCity defaultCity){
+        presenter.getLocationWeather(defaultCity);
+    }
+
+    @Subscribe
+    public void getCity(SavedCity savedCity){
         presenter.getWeather(savedCity);
-        Log.i(TAG, "onEvent: Location City");
     }
 
     @Override
@@ -112,7 +116,6 @@ public class WeatherFragment extends Fragment implements WeatherView {
         defaultWeather = weather;
         setWeatherBackground(weather);
         EventBus.getDefault().post(weather);
-        Log.i(TAG, "showWeather: ");
     }
 
     private void setWeatherBackground(Weather weather) {

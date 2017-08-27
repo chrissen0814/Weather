@@ -1,5 +1,6 @@
 package com.chrissen.zhitian.model;
 
+import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.SavedCity;
 import com.chrissen.zhitian.presenter.OnWeatherListener;
 
@@ -10,5 +11,7 @@ import com.chrissen.zhitian.presenter.OnWeatherListener;
 public interface WeatherModel {
 
     void loadCityWeather(SavedCity savedCity ,OnWeatherListener listener);
+
+    void loadLocationWeather(DefaultCity defaultCity , OnWeatherListener listener);
 
 }

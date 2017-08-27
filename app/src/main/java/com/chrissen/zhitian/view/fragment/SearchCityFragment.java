@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.adapter.SearchCityAdapter;
@@ -82,8 +81,6 @@ public class SearchCityFragment extends Fragment {
                                 City city = foundCityList.get(position);
                                 if(!city.getCityCode().isEmpty()){
                                     saveCity(city);
-                                    Snackbar.make(searchCityRl,"添加成功",Snackbar.LENGTH_LONG)
-                                            .show();
                                 }else {
                                     Snackbar.make(searchCityRl,"该城市没有天气代码，不能添加",Snackbar.LENGTH_LONG)
                                             .show();
@@ -119,10 +116,11 @@ public class SearchCityFragment extends Fragment {
             SavedCity savedCity = new SavedCity(city.getCityId(),city.getParentId(),city.getCityCode(),city.getCityName());
             if(!compareTwoCities(savedCity)){
                 savedCity.save();
-
-                Toast.makeText(getActivity(), "已保存", Toast.LENGTH_SHORT).show();
+                Snackbar.make(searchCityRl,"添加成功",Snackbar.LENGTH_LONG)
+                        .show();
             }else {
-                Toast.makeText(getActivity(), "该城市已经存在", Toast.LENGTH_SHORT).show();
+                Snackbar.make(searchCityRl,"该城市已经存在",Snackbar.LENGTH_LONG)
+                        .show();
             }
         }
     }

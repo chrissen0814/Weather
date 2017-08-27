@@ -13,6 +13,8 @@ public class PreferencesLoader {
 
     public static final String IMPORT_DATA = "import_data";
     public static final String WEATHER_COLOR = "weather_color";
+    public static final String DEFAULT_CITY_TEMP = "temp";
+    public static final String DEFAULT_CITY_IMG = "img";
 
 
     public static void putBoolean(String name , boolean flag){

@@ -64,12 +64,9 @@ public class CityManagementFragment extends Fragment {
         adapter.setOnItemLongClickListener(new CityManagementAdapter.OnItemLongClickListener() {
             @Override
             public void onItemLongClick(View view, int position) {
-                if(position == 0){
-                    Snackbar.make(cityManagementRl,"默认城市无法删除",Snackbar.LENGTH_LONG)
-                            .show();
-                }else {
-                    showPopupMenu(view,position);
-                }
+
+                showPopupMenu(view,position);
+
             }
         });
         return view;

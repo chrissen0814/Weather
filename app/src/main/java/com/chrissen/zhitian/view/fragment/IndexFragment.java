@@ -39,8 +39,8 @@ public class IndexFragment extends Fragment {
         return view;
     }
 
-    @Subscribe
-    public void onEvent(Weather weather){
+    @Subscribe(priority = 1)
+    public void setIndexWeatherInfo(Weather weather){
         indexRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         indexAdapter = new IndexAdapter(weather.getInfo().getIndexList());
         indexRv.setAdapter(indexAdapter);

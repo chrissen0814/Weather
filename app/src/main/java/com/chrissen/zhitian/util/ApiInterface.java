@@ -19,5 +19,8 @@ public interface ApiInterface {
     @GET("query")
     Observable<Weather> getWeather(@Query("appkey") String appkey , @Query("citycode") String cityCode);
 
+    @GET("query")
+    Observable<Weather> getLocationWeather(@Query("appkey") String appkey , @Query("location") String location);
+
 
 }

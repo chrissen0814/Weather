@@ -2,6 +2,7 @@ package com.chrissen.zhitian.presenter;
 
 import com.chrissen.zhitian.model.WeatherModel;
 import com.chrissen.zhitian.model.WeatherModelImpl;
+import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.SavedCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.view.WeatherView;
@@ -23,6 +24,11 @@ public class WeatherPresenterImpl implements WeatherPresenter , OnWeatherListene
     @Override
     public void getWeather(SavedCity savedCity) {
         weatherModel.loadCityWeather(savedCity,this);
+    }
+
+    @Override
+    public void getLocationWeather(DefaultCity defaultCity) {
+        weatherModel.loadLocationWeather(defaultCity,this);
     }
 
     @Override
