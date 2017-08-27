@@ -49,7 +49,7 @@ public class CityManagementFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_city_management,container,false);
         cityManagementRl = (RelativeLayout) view.findViewById(R.id.city_management_rl);
         cityRv = (RecyclerView) view.findViewById(R.id.city_management_rv);
-        adapter = new CityManagementAdapter(savedCityList);
+        adapter = new CityManagementAdapter(this,savedCityList);
         cityRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         cityRv.setAdapter(adapter);
         adapter.setOnItemClickListener(new CityManagementAdapter.OnItemClickListener() {
@@ -64,9 +64,7 @@ public class CityManagementFragment extends Fragment {
         adapter.setOnItemLongClickListener(new CityManagementAdapter.OnItemLongClickListener() {
             @Override
             public void onItemLongClick(View view, int position) {
-
                 showPopupMenu(view,position);
-
             }
         });
         return view;

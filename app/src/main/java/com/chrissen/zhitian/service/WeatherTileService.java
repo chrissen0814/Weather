@@ -10,7 +10,7 @@ import android.support.annotation.RequiresApi;
 import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.model.WeatherModel;
 import com.chrissen.zhitian.model.WeatherModelImpl;
-import com.chrissen.zhitian.model.bean.SavedCity;
+import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.presenter.OnWeatherListener;
 import com.chrissen.zhitian.util.WeatherInfoHelper;
@@ -27,9 +27,9 @@ public class WeatherTileService extends TileService implements OnWeatherListener
 
     @Override
     public void onStartListening() {
-        SavedCity defaultCity = DataSupport.find(SavedCity.class,1);
+        DefaultCity defaultCity = DataSupport.find(DefaultCity.class,1);
         WeatherModel weatherModel = new WeatherModelImpl();
-        weatherModel.loadCityWeather(defaultCity,this);
+        weatherModel.loadLocationWeather(defaultCity,this);
     }
 
     @Override

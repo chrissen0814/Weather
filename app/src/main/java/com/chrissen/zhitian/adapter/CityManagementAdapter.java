@@ -1,12 +1,17 @@
 package com.chrissen.zhitian.adapter;
 
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chrissen.zhitian.R;
@@ -19,6 +24,7 @@ import com.chrissen.zhitian.util.PreferencesLoader;
 import com.chrissen.zhitian.util.RetrofitFactory;
 import com.chrissen.zhitian.util.WeatherInfoHelper;
 
+import org.greenrobot.eventbus.EventBus;
 import org.litepal.crud.DataSupport;
 
 import java.util.List;
@@ -40,11 +46,12 @@ public class CityManagementAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
 
     private List<SavedCity> savedCityList;
-
+    private Fragment fragment;
     private OnItemClickListener listener;
     private OnItemLongClickListener longClickListener;
 
-    public CityManagementAdapter(List<SavedCity> savedCityList){
+    public CityManagementAdapter(Fragment fragment ,List<SavedCity> savedCityList){
+        this.fragment = fragment;
         this.savedCityList = savedCityList;
     }
 
@@ -71,7 +78,7 @@ public class CityManagementAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if(position == 0){
-            DefaultCity defaultCity = DataSupport.find(DefaultCity.class,1);
+            final DefaultCity defaultCity = DataSupport.find(DefaultCity.class,1);
             ((DefaultCityViewHolder)holder).cityName.setText(defaultCity.getCityName());
             int temp = PreferencesLoader.getInt(PreferencesLoader.DEFAULT_CITY_TEMP,0);
             int img = PreferencesLoader.getInt(PreferencesLoader.DEFAULT_CITY_IMG,0);
@@ -80,6 +87,23 @@ public class CityManagementAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             int weatherImagePath = WeatherInfoHelper.getWeatherImagePath(String.valueOf(img));
             ((DefaultCityViewHolder)holder).cardView.setCardBackgroundColor(color);
             ((DefaultCityViewHolder)holder).weatherImageIv.setImageResource(weatherImagePath);
+            ((DefaultCityViewHolder)holder).view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    EventBus.getDefault().post(defaultCity);
+                    ((DrawerLayout)fragment.getActivity().findViewById(R.id.main_drawer_layout))
+                            .closeDrawer(Gravity.RIGHT);
+                }
+            });
+            ((DefaultCityViewHolder)holder).view.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    RelativeLayout cityManagementRl = (RelativeLayout) fragment.getView().findViewById(R.id.city_management_rl);
+                    Snackbar.make(cityManagementRl,"默认城市不能删除",Snackbar.LENGTH_SHORT)
+                            .show();
+                    return true;
+                }
+            });
         }else {
             SavedCity savedCity = savedCityList.get(position-1);
             ((CityViewHolder)holder).cityName.setText(savedCity.getCityName());
