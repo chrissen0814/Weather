@@ -45,12 +45,10 @@ import java.util.List;
 public class WeatherFragment extends Fragment implements WeatherView {
     private static final String TAG = "WeatherFragment";
     private WeatherPresenter presenter;
-    private Weather defaultWeather;
     private RelativeLayout weatherviewContainerRl;
-    private ImageButton cityManagementIb , searchIb;
+    private ImageButton cityManagementIb , searchIb , toStartIb , toEndIb;
     private ViewPager weatherViewPager;
     private WeatherPagerAdapter adapter;
-    private SavedCity defaultCity;
     private List<Fragment> fragmentList = new ArrayList<>();
 
 
@@ -98,6 +96,48 @@ public class WeatherFragment extends Fragment implements WeatherView {
         weatherViewPager = (ViewPager) view.findViewById(R.id.weather_view_pager);
         weatherViewPager.setAdapter(adapter);
         weatherViewPager.setOffscreenPageLimit(5);
+        toStartIb = (ImageButton) view.findViewById(R.id.weather_to_start_ib);
+        toStartIb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                weatherViewPager.setCurrentItem(0);
+            }
+        });
+        toEndIb = (ImageButton) view.findViewById(R.id.weather_to_end_ib);
+        toEndIb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                weatherViewPager.setCurrentItem(fragmentList.size()-1);
+            }
+        });
+        if (weatherViewPager.getCurrentItem() == 0) {
+            toStartIb.setVisibility(View.INVISIBLE);
+        }
+        weatherViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position > 0) {
+                    toStartIb.setVisibility(View.VISIBLE);
+                }else {
+                    toStartIb.setVisibility(View.INVISIBLE);
+                }
+                if (position == fragmentList.size() - 1) {
+                    toEndIb.setVisibility(View.INVISIBLE);
+                }else {
+                    toEndIb.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         return view;
     }
 
@@ -113,7 +153,6 @@ public class WeatherFragment extends Fragment implements WeatherView {
 
     @Override
     public void showWeather(Weather weather) {
-        defaultWeather = weather;
         setWeatherBackground(weather);
         EventBus.getDefault().post(weather);
     }

@@ -2,7 +2,7 @@
 <resources>
     <dimen name="weather_card_elevation">4dp</dimen>
     <dimen name="weather_card_coner_radius">2dp</dimen>
-    <dimen name="weather_card_margin">32dp</dimen>
+    <dimen name="weather_card_margin">36dp</dimen>
     <dimen name="weather_view_pager_margin">12dp</dimen>
     <dimen name="text_view_padding">12dp</dimen>
     <dimen name="default_weather_image_view_size">24dp</dimen>

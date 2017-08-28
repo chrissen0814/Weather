@@ -10,12 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chrissen.zhitian.R;
+import com.chrissen.zhitian.model.bean.DefaultCity;
+import com.chrissen.zhitian.model.bean.SavedCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.util.EnglishTextView;
 import com.chrissen.zhitian.util.WeatherInfoHelper;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/8/21 0021.
@@ -35,6 +40,7 @@ public class BasicWeatherFragment extends Fragment {
         EventBus.getDefault().register(this);
     }
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -46,6 +52,21 @@ public class BasicWeatherFragment extends Fragment {
 
     @Subscribe(priority = 5)
     public void setWeatherInfo(Weather weather){
+        DefaultCity defaultCity = DataSupport.find(DefaultCity.class,1);
+        String parentCityName = defaultCity.getParentCityName();
+        if(weather.getInfo().getCityName().equals(parentCityName.substring(0,parentCityName.length()-1))
+                || weather.getInfo().getCityName().equals(defaultCity.getCityName())){
+            cityNameTv.setText(DataSupport.find(DefaultCity.class,1).getCityName());
+        }else {
+            String cityName = weather.getInfo().getCityName();
+            List<SavedCity> savedCityList = DataSupport.findAll(SavedCity.class);
+            for(SavedCity savedCity : savedCityList){
+                if(savedCity.getCityName().equals(cityName)){
+                    cityNameTv.setText(cityName);
+                    break;
+                }
+            }
+        }
         String updateTime = WeatherInfoHelper.getUpdateTime(weather.getInfo().getUpdateTime());
         String tempInfo = weather.getInfo().getTemp() + getResources().getString(R.string.celsius);
         String tempLow = "L:" + weather.getInfo().getTempLow();
@@ -57,7 +78,6 @@ public class BasicWeatherFragment extends Fragment {
                 +"\n" + getString(R.string.down_arrow) + weather.getInfo().getDailyList().get(0).getSunset();
         String airquality = weather.getInfo().getAqi().getQuality();
         int airqualityColor = WeatherInfoHelper.getAirqualityColor(airquality);
-        cityNameTv.setText(weather.getInfo().getCityName());
         updateTimeTv.setText(updateTime);
         tempTv.setText(tempInfo);
         forecastHourlyTv.setText(WeatherInfoHelper.getHourlyWeatherTipsInfo(weather.getInfo().getHourlyList()));

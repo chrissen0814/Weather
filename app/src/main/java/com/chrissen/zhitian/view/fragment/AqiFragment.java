@@ -22,7 +22,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 public class AqiFragment extends Fragment {
 
-    private TextView levelTv , primaryPolluteTv , affectTv;
+    private TextView levelTv , primaryPolluteTv , affectTv , pm25Tv , pm10Tv;
     private EnglishTextView updateTimeTv;
 
     @Override
@@ -44,6 +44,8 @@ public class AqiFragment extends Fragment {
         primaryPolluteTv = (TextView) view.findViewById(R.id.aqi_primary_pollute_tv);
         affectTv = (TextView) view.findViewById(R.id.aqi_affect_tv);
         updateTimeTv = (EnglishTextView) view.findViewById(R.id.aqi_update_time_tv);
+        pm25Tv = (TextView) view.findViewById(R.id.aqi_pm25_tv);
+        pm10Tv = (TextView) view.findViewById(R.id.aqi_pm10_tv);
     }
 
 
@@ -52,11 +54,15 @@ public class AqiFragment extends Fragment {
         String levelInfo = "空气质量" + weather.getInfo().getAqi().getAqiInfo().getLevel();
         String primaryPolluteInfo = "首要污染物:" + weather.getInfo().getAqi().getPrimarypollutant();
         String[] updateTimes = weather.getInfo().getAqi().getTimePoint().split(" ");
+        String pm25Info = "PM2.5: " + weather.getInfo().getAqi().getPm2_5();
+        String pm10Info = "PM10: " + weather.getInfo().getAqi().getPm10();
         updateTimeTv.setText(updateTimes[1]);
         levelTv.setText(levelInfo);
         levelTv.setTextColor(WeatherInfoHelper.getAirqualityColor(weather.getInfo().getAqi().getQuality()));
         primaryPolluteTv.setText(primaryPolluteInfo);
         affectTv.setText(weather.getInfo().getAqi().getAqiInfo().getAffect());
+        pm25Tv.setText(pm25Info);
+        pm10Tv.setText(pm10Info);
     }
 
     @Override

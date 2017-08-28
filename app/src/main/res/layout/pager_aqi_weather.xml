@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/aqi_primary_pollute_tv"
         android:layout_marginBottom="16dp"
-        android:textSize="32sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:padding="@dimen/text_view_padding"
         tools:text="空气质量一级"/>
@@ -54,11 +54,38 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/aqi_primary_pollute_tv"
         android:layout_marginTop="16dp"
-        android:textSize="19sp"
+        android:textSize="18sp"
         android:gravity="center"
         android:padding="@dimen/text_view_padding"
         android:lineSpacingExtra="4dp"
         tools:text="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/aqi_pm25_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/text_view_padding"
+            android:textSize="14sp"
+            tools:text="PM2.5:23"/>
+
+        <TextView
+            android:id="@+id/aqi_pm10_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/text_view_padding"
+            android:textSize="14sp"
+            tools:text="PM10:30"/>
+
+    </LinearLayout>
 
 
 

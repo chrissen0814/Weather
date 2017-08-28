@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -111,54 +110,18 @@ public class CityManagementAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             ((CityViewHolder)holder).view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onItemClick(v,holder.getAdapterPosition()-1);
+                    listener.onItemClick(v,holder.getAdapterPosition());
                 }
             });
             ((CityViewHolder)holder).view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    longClickListener.onItemLongClick(v,holder.getAdapterPosition()-1);
+                    longClickListener.onItemLongClick(v,holder.getAdapterPosition());
                     return true;
                 }
             });
         }
 
-    }
-
-    private void setLocationWeatherInfo(DefaultCity defaultCity , final DefaultCityViewHolder holder){
-        String locationInfo = defaultCity.getLatitude() + "," + defaultCity.getLongitude();
-        new RetrofitFactory(Api.JISU_URL).getApiInterface()
-                .getWeather(Api.JISU_APP_KEY,locationInfo)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Weather>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Weather weather) {
-                        int color = WeatherInfoHelper.getWeatherColor(weather.getInfo().getImg());
-                        holder.cardView.setCardBackgroundColor(color);
-                        holder.tempTv.setText(weather.getInfo().getTemp());
-                        int weatherImagePath = WeatherInfoHelper.getWeatherImagePath(weather.getInfo().getImg());
-                        holder.weatherImageIv.setImageResource(weatherImagePath);
-                        Log.i(TAG, "onNext: " + weather.getInfo().getCityName());
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        holder.tempTv.setText("00");
-                        holder.weatherImageIv.setImageResource(R.drawable.weather_nothing);
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
     }
 
     private void setWeatherInfo(SavedCity savedCity , final CityViewHolder holder){
