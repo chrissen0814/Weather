@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">叶子天气</string>
+    <string name="app_name">天气岛</string>
     <string name="up_arrow">\u2191</string>
     <string name="down_arrow">\u2193</string>
     <string name="celsius">℃</string>
