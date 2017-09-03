@@ -12,7 +12,7 @@ public class Daily{
     private String sunrise;
     private String sunset;
     @SerializedName("night")
-    private Day night;
+    private Night night;
     @SerializedName("day")
     private Day day;
 
@@ -48,11 +48,11 @@ public class Daily{
         this.sunset = sunset;
     }
 
-    public Day getNight() {
+    public Night getNight() {
         return night;
     }
 
-    public void setNight(Day night) {
+    public void setNight(Night night) {
         this.night = night;
     }
 
@@ -114,4 +114,56 @@ public class Daily{
             this.windPower = windPower;
         }
     }
+
+    public class Night{
+        private String weather;
+        @SerializedName("templow")
+        private String tempLow;
+        private String img;
+        @SerializedName("winddirect")
+        private String windDirect;
+        @SerializedName("windpower")
+        private String windPower;
+
+        public String getWeather() {
+            return weather;
+        }
+
+        public void setWeather(String weather) {
+            this.weather = weather;
+        }
+
+        public String getTempLow() {
+            return tempLow;
+        }
+
+        public void setTempLow(String tempHigh) {
+            this.tempLow = tempHigh;
+        }
+
+        public String getImg() {
+            return img;
+        }
+
+        public void setImg(String img) {
+            this.img = img;
+        }
+
+        public String getWindDirect() {
+            return windDirect;
+        }
+
+        public void setWindDirect(String windDirect) {
+            this.windDirect = windDirect;
+        }
+
+        public String getWindPower() {
+            return windPower;
+        }
+
+        public void setWindPower(String windPower) {
+            this.windPower = windPower;
+        }
+    }
+
 }

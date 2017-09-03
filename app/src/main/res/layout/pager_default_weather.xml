@@ -72,7 +72,7 @@
 
         <TextView
             android:id="@+id/weather_forecast_hourly_tips_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/weather_line_iv"
             android:layout_toLeftOf="@id/weather_line_iv"
@@ -86,7 +86,7 @@
 
         <TextView
             android:id="@+id/weather_forecast_day_tips_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/weather_line_iv"
             android:layout_toRightOf="@id/weather_line_iv"

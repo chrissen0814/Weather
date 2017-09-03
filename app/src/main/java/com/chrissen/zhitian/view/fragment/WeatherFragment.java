@@ -63,11 +63,13 @@ public class WeatherFragment extends Fragment implements WeatherView {
         DailyFragment dailyFragment = new DailyFragment();
         AqiFragment aqiFragment = new AqiFragment();
         IndexFragment indexFragment = new IndexFragment();
+        SupportFragment supportFragment = new SupportFragment();
         fragmentList.add(dwf);
         fragmentList.add(hourlyFragment);
         fragmentList.add(dailyFragment);
         fragmentList.add(aqiFragment);
         fragmentList.add(indexFragment);
+        fragmentList.add(supportFragment);
         adapter = new WeatherPagerAdapter(getFragmentManager(),fragmentList);
     }
 
@@ -107,7 +109,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
         toEndIb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                weatherViewPager.setCurrentItem(fragmentList.size()-1);
+                weatherViewPager.setCurrentItem(fragmentList.size()-2);
             }
         });
         if (weatherViewPager.getCurrentItem() == 0) {
@@ -126,7 +128,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
                 }else {
                     toStartIb.setVisibility(View.INVISIBLE);
                 }
-                if (position == fragmentList.size() - 1) {
+                if (position == fragmentList.size() - 2 || position == fragmentList.size() - 1) {
                     toEndIb.setVisibility(View.INVISIBLE);
                 }else {
                     toEndIb.setVisibility(View.VISIBLE);

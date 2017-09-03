@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#000000</color>
+    <color name="accent">#FFFF0000</color>
 
     <color name="card_daily_night">#212121</color>
 

@@ -39,7 +39,7 @@ public class DailyNightAdapter extends RecyclerView.Adapter<DailyNightAdapter.Ni
         Daily daily = dailyList.get(position);
         holder.timeTv.setText(WeatherInfoHelper.getDay(daily.getDate()));
         holder.weekTv.setText(daily.getWeek());
-        holder.tempTv.setText(daily.getNight().getTempHigh());
+        holder.tempTv.setText(daily.getNight().getTempLow());
         int weatherImagePath = WeatherInfoHelper.getWeatherImagePath(daily.getNight().getImg());
         holder.weatherImageIv.setImageResource(weatherImagePath);
     }

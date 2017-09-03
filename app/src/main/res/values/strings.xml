@@ -4,6 +4,12 @@
     <string name="down_arrow">\u2193</string>
     <string name="celsius">℃</string>
 
+    <string name="support_title">支持开发者</string>
+    <string name="support_coolapk">前往酷安</string>
+    <string name="support_alipay">捐赠</string>
+    <string name="support_share">\u3000\u3000如果你觉得天气岛还不错的话，欢迎您推到酷安里给个好评。当然，如果您有任何意见或建议欢迎到评论区写下您的想法，我会认真看和回复的！</string>
+    <string name="support_donate">\u3000\u3000天气岛为开发者个人作品，天气接口来源于极速数据(10000次/5元)，随着用户的增加，访问量逐渐上升，由于开发者还是学生，所以(╥﹏╥)你懂得。如果你想帮助我，欢迎通过支付宝捐赠(≧∀≦)ゞ。您的所有赠款将全部被用来购买范围次数！</string>
+
     <string name="weatherview_sunny">sunny</string>
     <string name="weatherview_cloudy">cloudy</string>
     <string name="weatherview_rainy">rainy</string>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/support_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:padding="@dimen/text_view_padding"
+            android:text="@string/support_title"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic_love"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/support_title_tv"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pic_love"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/support_title_tv"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/text_view_padding"
+        android:textSize="15sp"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/support_share"/>
+
+    <TextView
+        android:id="@+id/support_coolapk_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:paddingRight="@dimen/text_view_padding"
+        android:paddingLeft="@dimen/text_view_padding"
+        android:textColor="@color/accent"
+        android:clickable="true"
+        android:text="@string/support_coolapk"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="@dimen/text_view_padding"
+        android:paddingRight="@dimen/text_view_padding"
+        android:paddingTop="@dimen/text_view_padding"
+        android:textSize="15sp"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/support_donate"/>
+
+    <TextView
+        android:id="@+id/support_alipay_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:padding="@dimen/text_view_padding"
+        android:textColor="@color/accent"
+        android:clickable="true"
+        android:text="@string/support_alipay"/>
+
+</LinearLayout>
