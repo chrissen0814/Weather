@@ -110,13 +110,13 @@ public class CityManagementAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             ((CityViewHolder)holder).view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onItemClick(v,holder.getAdapterPosition());
+                    listener.onItemClick(v,holder.getAdapterPosition()-1);
                 }
             });
             ((CityViewHolder)holder).view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    longClickListener.onItemLongClick(v,holder.getAdapterPosition());
+                    longClickListener.onItemLongClick(v,holder.getAdapterPosition()-1);
                     return true;
                 }
             });

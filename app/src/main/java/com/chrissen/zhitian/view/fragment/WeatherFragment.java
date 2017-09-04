@@ -207,7 +207,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
 
     @Override
     public void showErrorInfo(String error) {
-        Toast.makeText(getActivity(), "Error: " + error, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
