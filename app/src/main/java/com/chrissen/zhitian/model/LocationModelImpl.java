@@ -17,15 +17,15 @@ import org.litepal.crud.DataSupport;
  * Created by Administrator on 2017/8/21 0021.
  */
 
+// TODO: 2017/9/6 0006 内存泄露
+
 public class LocationModelImpl implements LocationModel {
     private static final String TAG = "LocationModelImpl";
-    private Context context;
     private LocationClient locationClient;
     private MyLocationListener locationListener;
 
     @Override
     public void accessLocation(Context context) {
-        this.context = context;
         locationClient = new LocationClient(MyApplication.getContext());
         locationListener = new MyLocationListener();
         locationClient.registerLocationListener(locationListener);
@@ -52,8 +52,8 @@ public class LocationModelImpl implements LocationModel {
                 }else {
                     defaultCity.update(1);
                 }
-                EventBus.getDefault().post(defaultCity);
                 locationClient.stop();
+                EventBus.getDefault().post(defaultCity);
             }
         }
 
