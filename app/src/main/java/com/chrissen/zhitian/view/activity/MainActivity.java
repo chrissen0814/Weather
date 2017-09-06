@@ -1,4 +1,4 @@
-package com.chrissen.zhitian.view;
+package com.chrissen.zhitian.view.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,8 +12,8 @@ import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.presenter.LocationPresenter;
 import com.chrissen.zhitian.presenter.LocationPresenterImpl;
 import com.chrissen.zhitian.util.PreferencesLoader;
-import com.chrissen.zhitian.view.fragment.CityManagementFragment;
-import com.chrissen.zhitian.view.fragment.SearchCityFragment;
+import com.chrissen.zhitian.view.fragment.component.CityManagementFragment;
+import com.chrissen.zhitian.view.fragment.component.SearchCityFragment;
 import com.chrissen.zhitian.view.fragment.WeatherFragment;
 import com.umeng.analytics.MobclickAgent;
 

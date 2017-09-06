@@ -15,7 +15,7 @@ import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.presenter.OnWeatherListener;
 import com.chrissen.zhitian.util.WeatherInfoHelper;
-import com.chrissen.zhitian.view.MainActivity;
+import com.chrissen.zhitian.view.activity.MainActivity;
 
 import org.litepal.crud.DataSupport;
 

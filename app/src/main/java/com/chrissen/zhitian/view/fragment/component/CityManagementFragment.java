@@ -1,24 +1,21 @@
-package com.chrissen.zhitian.view.fragment;
+package com.chrissen.zhitian.view.fragment.component;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.view.menu.MenuPopupHelper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.adapter.CityManagementAdapter;
 import com.chrissen.zhitian.model.bean.SavedCity;
+import com.chrissen.zhitian.view.fragment.component.base.BaseFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.litepal.crud.DataSupport;
@@ -30,7 +27,7 @@ import java.util.List;
  * Created by Administrator on 2017/8/22 0022.
  */
 
-public class CityManagementFragment extends Fragment {
+public class CityManagementFragment extends BaseFragment {
 
     private RecyclerView cityRv;
     private RelativeLayout cityManagementRl;
@@ -38,15 +35,12 @@ public class CityManagementFragment extends Fragment {
     private List<SavedCity> savedCityList;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        savedCityList = DataSupport.findAll(SavedCity.class);
+    protected int getLayoutId() {
+        return R.layout.fragment_city_management;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_city_management,container,false);
+    protected void initView(View view, Bundle savedInstanceState) {
         cityManagementRl = (RelativeLayout) view.findViewById(R.id.city_management_rl);
         cityRv = (RecyclerView) view.findViewById(R.id.city_management_rv);
         adapter = new CityManagementAdapter(this,savedCityList);
@@ -67,7 +61,11 @@ public class CityManagementFragment extends Fragment {
                 showPopupMenu(view,position);
             }
         });
-        return view;
+    }
+
+    @Override
+    protected void initData() {
+        savedCityList = DataSupport.findAll(SavedCity.class);
     }
 
     private void showPopupMenu(View view, final int position) {

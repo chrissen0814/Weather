@@ -30,6 +30,12 @@ import com.chrissen.zhitian.util.weatherview.sand.SandView;
 import com.chrissen.zhitian.util.weatherview.snow.SnowView;
 import com.chrissen.zhitian.util.weatherview.sunny.LeafView;
 import com.chrissen.zhitian.view.WeatherView;
+import com.chrissen.zhitian.view.fragment.component.SupportFragment;
+import com.chrissen.zhitian.view.fragment.weather_pager.weather.AqiFragment;
+import com.chrissen.zhitian.view.fragment.weather_pager.weather.SummaryFragment;
+import com.chrissen.zhitian.view.fragment.weather_pager.weather.DailyFragment;
+import com.chrissen.zhitian.view.fragment.weather_pager.weather.HourlyFragment;
+import com.chrissen.zhitian.view.fragment.weather_pager.weather.IndexFragment;
 import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,7 +64,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
         presenter = new WeatherPresenterImpl(this);
-        BasicWeatherFragment dwf = new BasicWeatherFragment();
+        SummaryFragment dwf = new SummaryFragment();
         HourlyFragment hourlyFragment = new HourlyFragment();
         DailyFragment dailyFragment = new DailyFragment();
         AqiFragment aqiFragment = new AqiFragment();

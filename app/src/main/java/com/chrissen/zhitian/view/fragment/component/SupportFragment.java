@@ -1,4 +1,4 @@
-package com.chrissen.zhitian.view.fragment;
+package com.chrissen.zhitian.view.fragment.component;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -6,33 +6,28 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chrissen.zhitian.R;
+import com.chrissen.zhitian.view.fragment.component.base.BaseFragment;
 
 /**
  * Created by Administrator on 2017/9/3 0003.
  */
 
-public class SupportFragment extends Fragment {
+public class SupportFragment extends BaseFragment {
 
     private TextView alipayTv , coolapkTv;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pager_support,container,false);
-        initLayout(view);
-        return view;
+    protected int getLayoutId() {
+        return R.layout.pager_support;
     }
 
-    private void initLayout(View view) {
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
         coolapkTv = (TextView) view.findViewById(R.id.support_coolapk_tv);
         coolapkTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +49,12 @@ public class SupportFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    protected void initData() {
+
+    }
+
 
 
 }

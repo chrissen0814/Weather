@@ -46,8 +46,6 @@ public class LocationModelImpl implements LocationModel {
                 String districtName = bdLocation.getDistrict();
                 String longitude = String.valueOf(bdLocation.getLongitude());
                 String latitude = String.valueOf(bdLocation.getLatitude());
-                Log.i(TAG, "onReceiveLocation: " + districtName);
-                Log.i(TAG, "onReceiveLocation: " + cityName);
                 DefaultCity defaultCity = new DefaultCity(districtName,cityName,longitude,latitude);
                 if(DataSupport.count(DefaultCity.class) == 0){
                     defaultCity.save();

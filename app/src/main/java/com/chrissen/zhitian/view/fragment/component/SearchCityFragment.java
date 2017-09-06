@@ -1,16 +1,12 @@
-package com.chrissen.zhitian.view.fragment;
+package com.chrissen.zhitian.view.fragment.component;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.chrissen.zhitian.R;
@@ -18,6 +14,7 @@ import com.chrissen.zhitian.adapter.SearchCityAdapter;
 import com.chrissen.zhitian.model.bean.City;
 import com.chrissen.zhitian.model.bean.SavedCity;
 import com.chrissen.zhitian.util.PreferencesLoader;
+import com.chrissen.zhitian.view.fragment.component.base.BaseFragment;
 
 import org.litepal.crud.DataSupport;
 
@@ -28,7 +25,7 @@ import java.util.List;
  * Created by Administrator on 2017/8/22 0022.
  */
 
-public class SearchCityFragment extends Fragment {
+public class SearchCityFragment extends BaseFragment {
 
     private int color;
     private Toolbar searchToolbar;
@@ -38,22 +35,14 @@ public class SearchCityFragment extends Fragment {
     private RecyclerView searchCityRv;
     private RelativeLayout searchCityRl;
 
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        cityList = new ArrayList<>();
-        color = PreferencesLoader.getInt(PreferencesLoader.WEATHER_COLOR,R.color.colorAccent);
+    protected int getLayoutId() {
+        return R.layout.fragment_search_city;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search_city,container,false);
-        initLayout(view);
-        return view;
-    }
-
-    private void initLayout(View view) {
+    protected void initView(View view, Bundle savedInstanceState) {
         searchToolbar = (Toolbar) view.findViewById(R.id.search_city_toolbar);
         searchToolbar.setBackgroundColor(color);
         searchCityRl = (RelativeLayout) view.findViewById(R.id.search_city_rl);
@@ -110,6 +99,13 @@ public class SearchCityFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    protected void initData() {
+        cityList = new ArrayList<>();
+        color = PreferencesLoader.getInt(PreferencesLoader.WEATHER_COLOR,R.color.colorAccent);
+    }
+
 
     private void saveCity(City city) {
         if (city != null) {

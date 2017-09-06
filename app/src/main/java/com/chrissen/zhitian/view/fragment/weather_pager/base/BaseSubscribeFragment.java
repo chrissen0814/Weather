@@ -1,29 +1,28 @@
-package com.chrissen.zhitian.view.fragment;
+package com.chrissen.zhitian.view.fragment.weather_pager.base;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chrissen.zhitian.R;
-import com.chrissen.zhitian.adapter.IndexAdapter;
 import com.chrissen.zhitian.model.bean.Weather;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 /**
- * Created by Administrator on 2017/8/21 0021.
+ * Created by Administrator on 2017/9/6 0006.
  */
 
-public class IndexFragment extends Fragment {
+public abstract class BaseSubscribeFragment extends Fragment {
 
-    private RecyclerView indexRv;
-    private IndexAdapter indexAdapter;
+    protected Activity mActivity;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,19 +30,23 @@ public class IndexFragment extends Fragment {
         EventBus.getDefault().register(this);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mActivity = (Activity)context;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pager_index_weather,container,false);
-        indexRv = (RecyclerView) view.findViewById(R.id.weather_index_rv);
+        View view = inflater.inflate(getLayoutId(),container,false);
+        initView(view,savedInstanceState);
         return view;
     }
 
-    @Subscribe(priority = 1)
-    public void setIndexWeatherInfo(Weather weather){
-        indexRv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        indexAdapter = new IndexAdapter(weather.getInfo().getIndexList());
-        indexRv.setAdapter(indexAdapter);
+    @Subscribe
+    public void setWeatherInfo(Weather weather){
+        setWeather(weather);
     }
 
     @Override
@@ -51,4 +54,11 @@ public class IndexFragment extends Fragment {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+
+    protected abstract int getLayoutId();
+
+    protected abstract void initView(View view , Bundle savedInstanceState);
+
+    protected abstract void setWeather(Weather weather);
+
 }

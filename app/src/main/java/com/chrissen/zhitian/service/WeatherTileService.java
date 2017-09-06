@@ -6,6 +6,7 @@ import android.os.Build;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import android.support.annotation.RequiresApi;
+import android.widget.Toast;
 
 import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.model.WeatherModel;
@@ -14,7 +15,7 @@ import com.chrissen.zhitian.model.bean.DefaultCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.presenter.OnWeatherListener;
 import com.chrissen.zhitian.util.WeatherInfoHelper;
-import com.chrissen.zhitian.view.MainActivity;
+import com.chrissen.zhitian.view.activity.MainActivity;
 
 import org.litepal.crud.DataSupport;
 
@@ -28,8 +29,12 @@ public class WeatherTileService extends TileService implements OnWeatherListener
     @Override
     public void onStartListening() {
         DefaultCity defaultCity = DataSupport.find(DefaultCity.class,1);
-        WeatherModel weatherModel = new WeatherModelImpl();
-        weatherModel.loadLocationWeather(defaultCity,this);
+        if(defaultCity != null){
+            WeatherModel weatherModel = new WeatherModelImpl();
+            weatherModel.loadLocationWeather(defaultCity,this);
+        }else {
+            Toast.makeText(this, "默认城市不存在！", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

@@ -5,7 +5,7 @@
     android:id="@+id/splash_container_rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.chrissen.zhitian.view.SplashActivity">
+    tools:context="com.chrissen.zhitian.view.activity.SplashActivity">
 
     <ImageView
         android:id="@+id/splash_loading_iv"

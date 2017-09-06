@@ -1,4 +1,4 @@
-package com.chrissen.zhitian.view;
+package com.chrissen.zhitian.view.activity;
 
 import android.Manifest;
 import android.animation.Animator;

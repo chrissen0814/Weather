@@ -1,11 +1,7 @@
-package com.chrissen.zhitian.view.fragment;
+package com.chrissen.zhitian.view.fragment.weather_pager.weather;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +11,8 @@ import com.chrissen.zhitian.model.bean.SavedCity;
 import com.chrissen.zhitian.model.bean.Weather;
 import com.chrissen.zhitian.util.EnglishTextView;
 import com.chrissen.zhitian.util.WeatherInfoHelper;
+import com.chrissen.zhitian.view.fragment.weather_pager.base.BaseSubscribeFragment;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 import org.litepal.crud.DataSupport;
 
 import java.util.List;
@@ -26,8 +21,8 @@ import java.util.List;
  * Created by Administrator on 2017/8/21 0021.
  */
 
-public class BasicWeatherFragment extends Fragment {
-    private static final String TAG = "BasicWeatherFragment";
+public class SummaryFragment extends BaseSubscribeFragment {
+    private static final String TAG = "SummaryFragment";
 
     private EnglishTextView  updateTimeTv ,tempTv , tempMaxMinTv , humidityTv ,sunTv;
     private TextView cityNameTv , forecastHourlyTv,forecastDayTv , airQualityTv, windTv, weatherTextTv  ;
@@ -35,23 +30,29 @@ public class BasicWeatherFragment extends Fragment {
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+    protected int getLayoutId() {
+        return R.layout.pager_default_weather;
     }
 
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pager_default_weather,container,false);
-        initLayout(view);
-        return view;
+    protected void initView(View view, Bundle savedInstanceState) {
+        cityNameTv = (TextView) view.findViewById(R.id.weather_city_name_tv);
+        updateTimeTv = (EnglishTextView) view.findViewById(R.id.weather_update_time_tv);
+        airQualityTv = (TextView) view.findViewById(R.id.weather_airquality_tv);
+        forecastHourlyTv = (TextView) view.findViewById(R.id.weather_forecast_hourly_tips_tv);
+        forecastDayTv = (TextView) view.findViewById(R.id.weather_forecast_day_tips_tv);
+        windTv = (TextView) view.findViewById(R.id.weather_wind_tv);
+        weatherTextTv = (TextView) view.findViewById(R.id.weather_weather_text_tv);
+        humidityTv = (EnglishTextView) view.findViewById(R.id.weather_humidity_tv);
+        tempTv = (EnglishTextView) view.findViewById(R.id.weather_temp_tv);
+        tempMaxMinTv = (EnglishTextView) view.findViewById(R.id.weather_temp_max_min_tv);
+        sunTv = (EnglishTextView) view.findViewById(R.id.weather_sun_tv);
+        airqualityIv = (ImageView) view.findViewById(R.id.weather_airquality_image_iv);
+        weatherTextIv = (ImageView) view.findViewById(R.id.weather_weather_text_image_iv);
     }
 
-    @Subscribe(priority = 5)
-    public void setWeatherInfo(Weather weather){
+    @Override
+    protected void setWeather(Weather weather) {
         DefaultCity defaultCity = DataSupport.find(DefaultCity.class,1);
         String parentCityName = defaultCity.getParentCityName();
         if(weather.getInfo().getCityName().equals(parentCityName.substring(0,parentCityName.length()-1))
@@ -95,27 +96,5 @@ public class BasicWeatherFragment extends Fragment {
         windTv.setText(windInfo);
         humidityTv.setText(humidityInfo);
         sunTv.setText(sunInfo);
-    }
-
-    private void initLayout(View view) {
-        cityNameTv = (TextView) view.findViewById(R.id.weather_city_name_tv);
-        updateTimeTv = (EnglishTextView) view.findViewById(R.id.weather_update_time_tv);
-        airQualityTv = (TextView) view.findViewById(R.id.weather_airquality_tv);
-        forecastHourlyTv = (TextView) view.findViewById(R.id.weather_forecast_hourly_tips_tv);
-        forecastDayTv = (TextView) view.findViewById(R.id.weather_forecast_day_tips_tv);
-        windTv = (TextView) view.findViewById(R.id.weather_wind_tv);
-        weatherTextTv = (TextView) view.findViewById(R.id.weather_weather_text_tv);
-        humidityTv = (EnglishTextView) view.findViewById(R.id.weather_humidity_tv);
-        tempTv = (EnglishTextView) view.findViewById(R.id.weather_temp_tv);
-        tempMaxMinTv = (EnglishTextView) view.findViewById(R.id.weather_temp_max_min_tv);
-        sunTv = (EnglishTextView) view.findViewById(R.id.weather_sun_tv);
-        airqualityIv = (ImageView) view.findViewById(R.id.weather_airquality_image_iv);
-        weatherTextIv = (ImageView) view.findViewById(R.id.weather_weather_text_image_iv);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 }

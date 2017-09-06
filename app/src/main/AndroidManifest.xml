@@ -27,7 +27,7 @@
         <meta-data android:value="597f099c734be45190001020" android:name="UMENG_APPKEY"/>
         <meta-data android:value="Coolapk" android:name="UMENG_CHANNEL"/>
 
-        <activity android:name="com.chrissen.zhitian.view.MainActivity"
+        <activity android:name="com.chrissen.zhitian.view.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.chrissen.zhitian.view.SplashActivity"></activity>
+        <activity android:name="com.chrissen.zhitian.view.activity.SplashActivity"></activity>
 
         <service
             android:name="com.baidu.location.f"

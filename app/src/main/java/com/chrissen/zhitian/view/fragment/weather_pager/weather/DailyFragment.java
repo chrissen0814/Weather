@@ -1,4 +1,4 @@
-package com.chrissen.zhitian.view.fragment;
+package com.chrissen.zhitian.view.fragment.weather_pager.weather;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -6,13 +6,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -23,15 +19,13 @@ import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.adapter.DailyDayAdapter;
 import com.chrissen.zhitian.adapter.DailyNightAdapter;
 import com.chrissen.zhitian.model.bean.Weather;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
+import com.chrissen.zhitian.view.fragment.weather_pager.base.BaseSubscribeFragment;
 
 /**
  * Created by Administrator on 2017/8/21 0021.
  */
 
-public class DailyFragment extends Fragment {
+public class DailyFragment extends BaseSubscribeFragment {
 
     private boolean isShownBack;
     private RecyclerView dailyDayRv , dailyNightRv;
@@ -43,15 +37,12 @@ public class DailyFragment extends Fragment {
     private Switch dayNightSwitch;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+    protected int getLayoutId() {
+        return R.layout.pager_daily_weather;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pager_daily_weather,container,false);
+    protected void initView(View view, Bundle savedInstanceState) {
         dayNightSwitch = (Switch) view.findViewById(R.id.daily_weather_switch_tb);
         titleTv = (TextView) view.findViewById(R.id.daily_weather_title_tv);
         swtciRl = (RelativeLayout) view.findViewById(R.id.daily_weather_swtch_rl);
@@ -59,7 +50,17 @@ public class DailyFragment extends Fragment {
         dailyNightFl = (FrameLayout) view.findViewById(R.id.daily_night_fl);
         dailyDayRv = (RecyclerView) view.findViewById(R.id.weather_daily_day_weather_rv);
         dailyNightRv = (RecyclerView) view.findViewById(R.id.weather_daily_night_weather_rv);
-        return view;
+    }
+
+    @Override
+    protected void setWeather(Weather weather) {
+        dailyDayRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        dailyDayAdapter = new DailyDayAdapter(weather.getInfo().getDailyList());
+        dailyDayRv.setAdapter(dailyDayAdapter);
+        dailyNightRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        dailyNightAdapter = new DailyNightAdapter(weather.getInfo().getDailyList());
+        dailyNightRv.setAdapter(dailyNightAdapter);
+        setFlipAnimation();
     }
 
     private void setFlipAnimation() {
@@ -107,20 +108,4 @@ public class DailyFragment extends Fragment {
         });
     }
 
-    @Subscribe(priority = 3)
-    public void setDailyWeatherInfo(Weather weather){
-        dailyDayRv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        dailyDayAdapter = new DailyDayAdapter(weather.getInfo().getDailyList());
-        dailyDayRv.setAdapter(dailyDayAdapter);
-        dailyNightRv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        dailyNightAdapter = new DailyNightAdapter(weather.getInfo().getDailyList());
-        dailyNightRv.setAdapter(dailyNightAdapter);
-        setFlipAnimation();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
 }
