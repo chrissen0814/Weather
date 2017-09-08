@@ -75,8 +75,8 @@ public class SummaryFragment extends BaseSubscribeFragment {
         int weatherImagePath = WeatherInfoHelper.getWeatherImagePath(weather.getInfo().getImg());
         String humidityInfo = weather.getInfo().getHumidity() + "%";
         String windInfo = weather.getInfo().getWindDirect() + "\n" +  weather.getInfo().getWindPower();
-        String sunInfo = getString(R.string.up_arrow) + weather.getInfo().getDailyList().get(0).getSunrise()
-                +"\n" + getString(R.string.down_arrow) + weather.getInfo().getDailyList().get(0).getSunset();
+        String sunInfo =weather.getInfo().getDailyList().get(0).getSunrise()
+                +"\n" + weather.getInfo().getDailyList().get(0).getSunset();
         String airquality = weather.getInfo().getAqi().getQuality();
         int airqualityColor = WeatherInfoHelper.getAirqualityColor(airquality);
         updateTimeTv.setText(updateTime);

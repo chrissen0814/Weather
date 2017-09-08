@@ -37,6 +37,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.android.support:design:25.3.1'
+    compile 'org.jsoup:jsoup:1.10.2'
     compile 'com.umeng.analytics:analytics:latest.integration'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.2'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'

@@ -140,46 +140,58 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/weather_airquality_image_iv"
-                    android:layout_width="@dimen/default_weather_image_view_size"
-                    android:layout_height="@dimen/default_weather_image_view_size"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_airquality"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/weather_airquality_image_iv"
+                        android:layout_width="@dimen/default_weather_image_view_size"
+                        android:layout_height="@dimen/default_weather_image_view_size"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:src="@drawable/icon_airquality"/>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/weather_airquality_tv"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:paddingLeft="@dimen/text_view_padding"
+                    android:paddingLeft="6dp"
                     tools:text="轻度污染"
                     android:gravity="center_vertical"/>
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/weather_weather_text_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="10dp"
+                    tools:text="多云"/>
 
                 <ImageView
                     android:id="@+id/weather_weather_text_image_iv"
                     android:layout_width="@dimen/default_weather_image_view_size"
                     android:layout_height="@dimen/default_weather_image_view_size"
                     android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@id/weather_weather_text_tv"
                     tools:src="@drawable/weather_cloudy"/>
 
-                <TextView
-                    android:id="@+id/weather_weather_text_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/text_view_padding"
-                    tools:text="多云"
-                    android:gravity="center_vertical"/>
-
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </LinearLayout>
@@ -216,44 +228,58 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ImageView
-                    android:layout_width="@dimen/default_weather_image_view_size"
-                    android:layout_height="@dimen/default_weather_image_bottom_size"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_wind"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/default_weather_image_view_size"
+                        android:layout_height="@dimen/default_weather_image_bottom_size"
+                        android:layout_weight="1"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:src="@drawable/icon_wind"/>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/weather_wind_tv"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:paddingLeft="@dimen/text_view_padding"
+                    android:paddingLeft="6dp"
                     tools:text="东北风\n4级"
                     android:gravity="center_vertical"/>
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <ImageView
-                    android:layout_width="@dimen/default_weather_image_view_size"
-                    android:layout_height="@dimen/default_weather_image_bottom_size"
-                    android:layout_gravity="center"
-                    android:src="@drawable/icon_sun"/>
-
                 <com.chrissen.zhitian.util.EnglishTextView
                     android:id="@+id/weather_sun_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/text_view_padding"
-                    tools:text="7:00\n18:54"
-                    android:gravity="center_vertical"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    tools:text="7:00\n18:54"/>
 
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/default_weather_image_view_size"
+                    android:layout_height="@dimen/default_weather_image_view_size"
+                    android:layout_gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@id/weather_sun_tv"
+                    android:src="@drawable/icon_sun"/>
+
+
+
+            </RelativeLayout>
 
         </LinearLayout>
 

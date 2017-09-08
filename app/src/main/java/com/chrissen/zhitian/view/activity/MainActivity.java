@@ -12,9 +12,9 @@ import com.chrissen.zhitian.R;
 import com.chrissen.zhitian.presenter.LocationPresenter;
 import com.chrissen.zhitian.presenter.LocationPresenterImpl;
 import com.chrissen.zhitian.util.PreferencesLoader;
-import com.chrissen.zhitian.view.fragment.component.CityManagementFragment;
-import com.chrissen.zhitian.view.fragment.component.SearchCityFragment;
 import com.chrissen.zhitian.view.fragment.WeatherFragment;
+import com.chrissen.zhitian.view.fragment.component.CityManagementFragment;
+import com.chrissen.zhitian.view.fragment.component.WarningFragment;
 import com.umeng.analytics.MobclickAgent;
 
 public class MainActivity extends AppCompatActivity {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main_left_container_fl,new SearchCityFragment())
+                .replace(R.id.main_left_container_fl,new WarningFragment())
                 .commit();
     }
 

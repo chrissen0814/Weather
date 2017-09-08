@@ -15,14 +15,14 @@
     </RelativeLayout>
 
     <ImageButton
-        android:id="@+id/weather_search_ib"
+        android:id="@+id/weather_warning_ib"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="12dp"
         android:padding="12dp"
-        android:src="@drawable/bt_search"
+        android:src="@drawable/bt_warning"
         android:tint="@android:color/white"
         android:background="@android:color/transparent"/>
 

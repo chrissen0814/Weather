@@ -52,7 +52,7 @@ public class WeatherFragment extends Fragment implements WeatherView {
     private static final String TAG = "WeatherFragment";
     private WeatherPresenter presenter;
     private RelativeLayout weatherviewContainerRl;
-    private ImageButton cityManagementIb , searchIb , toStartIb , toEndIb;
+    private ImageButton cityManagementIb , warningIb, toStartIb , toEndIb;
     private ViewPager weatherViewPager;
     private WeatherPagerAdapter adapter;
     private List<Fragment> fragmentList = new ArrayList<>();
@@ -93,8 +93,8 @@ public class WeatherFragment extends Fragment implements WeatherView {
                 drawerLayout.openDrawer(Gravity.RIGHT);
             }
         });
-        searchIb = (ImageButton) view.findViewById(R.id.weather_search_ib);
-        searchIb.setOnClickListener(new View.OnClickListener() {
+        warningIb = (ImageButton) view.findViewById(R.id.weather_warning_ib);
+        warningIb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DrawerLayout drawerLayout = (DrawerLayout) getActivity().findViewById(R.id.main_drawer_layout);

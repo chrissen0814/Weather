@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="32dp"
+    android:layout_marginTop="345dp">
+
+    <TextView
+        android:id="@+id/item_warning_footer_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:gravity="center"
+        android:text="数据来源于中国气象局"/>
+
+</RelativeLayout>
